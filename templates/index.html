@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Cereal Searcher Homepage</title>
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap-3.3.7-dist/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" type = "text/css" href="{{ url_for('static', filename='stylesheets/index.css') }}" >
+  </head>
+  <body>
+    <div class="site-wrapper">
+      <div class="site-wrapper-inner">
+        <div class="cover-container">
+
+          <div class="masthead clearfix">
+            <div class="inner">
+              <nav class="nav nav-masthead">
+                <a class="nav-link active" href="/about">About</a>
+              </nav>
+            </div>
+          </div>
+
+          <div class="inner-cover">
+            <h1 class="cover-heading">Cereal Search</h1>
+            <p class="lead">Find the Perfect Cereal to Start Your Day!</p>
+            <p class="lead">
+            <form class = "range_boxes_group" action="/result" method="POST">
+              <div class="form-inline">
+                <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" placeholder="Cereal Name" name="searchInput">
+                <input type="submit" class="btn btn-primary btn-lg" role="button">
+              </div>
+
+              <br><label>Calories:</label><br>
+              <div class="form-inline">
+                <input type="number" class="form-control mb-2 mr-sm-2 mb-sm-0" id="min-calories" placeholder="min" name="min-calories">
+                <label> ~ </label>
+                <input type="number" class="form-control mb-2 mr-sm-2 mb-sm-0" id="max-calories" placeholder="max" name="max-calories">
+              </div>
+
+              <label>Sugar:</label><br>
+              <div class="form-inline">
+                <input type="number" class="form-control mb-2 mr-sm-2 mb-sm-0" id="min-sugars" placeholder="min" name="min-sugars">
+                <label> ~ </label>
+                <input type="number" class="form-control mb-2 mr-sm-2 mb-sm-0" id="max-sugars" placeholder="max" name="max-sugars">
+              </div>
+
+              <label>Protein:</label><br>
+              <div class="form-inline">
+                <input type="number" class="form-control mb-2 mr-sm-2 mb-sm-0" id="min-protein" placeholder="min" name="min-protein">
+                <label> ~ </label>
+                <input type="number" class="form-control mb-2 mr-sm-2 mb-sm-0" id="max-protein" placeholder="max" name="max-protein">
+              </div>
+
+              <label>Health Rating:</label><br>
+              <div class="form-inline">
+                <input type="number" step="any" class="form-control mb-2 mr-sm-2 mb-sm-0" id="min-rating" placeholder="min" name="min-rating">
+                <label> ~ </label>
+                <input type="number" step="any" class="form-control mb-2 mr-sm-2 mb-sm-0" id="max-rating" placeholder="max" name="max-rating">
+              </div>
+            </form>
+            </p>
+          </div>
+          <div class="mastfoot">
+            <div  class="inner">
+              <p>by Ephraim Benson and Weijia Ma</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Bootstrap core JavaScript
+      ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="../../dist/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>

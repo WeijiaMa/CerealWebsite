@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Cereal Results</title>
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap-3.3.7-dist/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" type = "text/css" href="{{ url_for('static', filename='stylesheets/result.css') }}">
+    <!-- jquery -->
+    <link href='http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css' rel='stylesheet' type='text/css'>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse fixed-top">
+      <a class="navbar-brand" href="/">Home</a>
+    </nav>
+    <div class="jumbotron">
+      <div class="container">
+        <h1 class="display-3">Cereal Searcher</h1>
+      </div>
+    </div>
+    <h4 style="margin-left: 15px;">Search Parameters:</h4>
+    
+    <form class = "range_boxes_group" action = "/result" method = "POST">
+      <div class="form-inline">
+        <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" placeholder="Cereal Name" name="searchInput">
+        <input type="submit" class="btn btn-primary btn-med" role="button">
+      </div>
+
+      <div class="range_labels">
+        <label>Calories:</label><br><br>
+        <label>Sugar:</label><br><br>
+        <label>Protein:</label><br><br>
+        <label>Health Rating:</label>
+      </div>
+
+      <div class="form-inline">
+        <input type="number" class="form-control mb-2 mr-sm-2 mb-sm-0" id="min-calories" placeholder="min" name="min-calories">
+        <label> ~ </label>
+        <input type="number" class="form-control mb-2 mr-sm-2 mb-sm-0" id="max-calories" placeholder="max" name="max-calories">
+      </div>
+
+      <div class="form-inline">
+        <input type="number" class="form-control mb-2 mr-sm-2 mb-sm-0" id="min-sugars" placeholder="min" name="min-sugars">
+        <label> ~ </label>
+        <input type="number" class="form-control mb-2 mr-sm-2 mb-sm-0" id="max-sugars" placeholder="max" name="max-sugars">
+      </div>
+
+      <div class="form-inline">
+        <input type="number" class="form-control mb-2 mr-sm-2 mb-sm-0" id="min-protein" placeholder="min" name="min-protein">
+        <label> ~ </label>
+        <input type="number" class="form-control mb-2 mr-sm-2 mb-sm-0" id="max-protein" placeholder="max" name="max-protein">
+      </div>
+
+      <div class="form-inline">
+        <input type="number" step="any" class="form-control mb-2 mr-sm-2 mb-sm-0" id="min-rating" placeholder="min" name="min-rating">
+        <label> ~ </label>
+        <input type="number" step="any" class="form-control mb-2 mr-sm-2 mb-sm-0" id="max-rating" placeholder="max" name="max-rating">
+      </div>
+      <text>Health Rating is 1-100. Higher is better.</text>
+    </form>
+    <div class="grid">
+      {% for item in result %}
+        <div class="gallery">
+          <img src="/static/images/boxart/{{ item["name"] }}.jpg">
+          <div class="cereal_name">{{ item["name"] }}</div>
+          <div class="desc">Brand: {{ item["mrf"] }}</div>
+          <div class="desc">Calories: {{ item["calories"] }}</div>
+          <div class="desc">Sugars: {{ item["sugars"] }}g</div>
+          <div class="desc">Protein: {{ item["protein"] }}g</div>
+          <div class="rating">Health Rating: {{ item["rating"] }}</div>
+        </div>
+      {% endfor %}
+    </div>
+  </body>
+</html>
